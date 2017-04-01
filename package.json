@@ -1,0 +1,22 @@
+{
+  "name": "afdeploytest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willj/afdeploytest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willj/afdeploytest/issues"
+  },
+  "homepage": "https://github.com/willj/afdeploytest#readme",
+  "dependencies": {
+    "simple-sms": "^2.0.0"
+  }
+}
