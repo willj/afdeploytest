@@ -9,7 +9,7 @@ module.exports = function (context, req) {
         context.log("Number: " + num);
 
         sms.send({
-            phoneNumber: trim(num),
+            phoneNumber: num.trim(),
             message: "Hello, this is the internet calling!",
             senderId: "AzureFuncs"
         }).catch((err) => {
