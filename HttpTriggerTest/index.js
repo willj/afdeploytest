@@ -3,10 +3,19 @@ const sms = require("simple-sms");
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    sms.send({
-        phoneNumber: process.env.NotifyPhoneNumber,
-        message: "Hello, this is the internet calling!",
-        senderId: "AzureFuncs"
+    let phoneNumbers = process.env.NotifyPhoneNumber.split(',');
+
+    phoneNumbers.forEach((num, index) => {
+        context.log("Number: " + num);
+
+        sms.send({
+            phoneNumber: trim(num),
+            message: "Hello, this is the internet calling!",
+            senderId: "AzureFuncs"
+        }).catch((err) => {
+            context.log("Failed sending to " + num);
+            context.log(err);
+        });
     });
 
     if (req.query.name || (req.body && req.body.name)) {
