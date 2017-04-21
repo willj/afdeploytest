@@ -12,7 +12,12 @@ module.exports = function (context, req) {
             phoneNumber: num.trim(),
             message: "Hello, this is the internet calling!",
             senderId: "AzureFuncs"
-        }).catch((err) => {
+        })
+        .then((val) => {
+            context.log("sms done");
+            context.log(val);
+        })
+        .catch((err) => {
             context.log("Failed sending to " + num);
             context.log(err);
         });
